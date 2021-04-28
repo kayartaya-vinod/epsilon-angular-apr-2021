@@ -5,3 +5,10 @@
 div {
   margin-bottom: 10px;
 }
+
+th {
+  cursor: pointer;
+}
+th:first-child {
+  cursor: default;
+}

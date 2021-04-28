@@ -17,6 +17,9 @@ export class ContactListComponent implements OnInit {
   showPhoneColumn: boolean = true;
   showCityColumn: boolean = true;
 
+  fieldNameToSort: string = undefined;
+  sortInReverse: boolean = true;
+
   constructor() { }
 
   ngOnInit(): void {
@@ -43,6 +46,11 @@ export class ContactListComponent implements OnInit {
       case 'phone': return this.showPhoneColumn ? 'btn-primary' : 'btn-outline-primary';
       case 'city': return this.showCityColumn ? 'btn-primary' : 'btn-outline-primary';
     }
+  }
+
+  sortByField(fieldName: string): void {
+    this.fieldNameToSort = fieldName;
+    this.sortInReverse = !this.sortInReverse;
   }
 
 }

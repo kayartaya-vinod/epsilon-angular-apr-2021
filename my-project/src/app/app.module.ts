@@ -10,6 +10,8 @@ import { ContactListComponent } from './components/contact-list/contact-list.com
 import { NgswitchDemoComponent } from './components/ngswitch-demo/ngswitch-demo.component';
 import { ContactsInfoComponent } from './components/contacts-info/contacts-info.component';
 import { ContactCardComponent } from './components/contact-card/contact-card.component';
+import { FullnamePipe } from './pipes/fullname.pipe';
+import { SortPipe } from './pipes/sort.pipe';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { ContactCardComponent } from './components/contact-card/contact-card.com
     ContactListComponent,
     NgswitchDemoComponent,
     ContactsInfoComponent,
-    ContactCardComponent
+    ContactCardComponent,
+    FullnamePipe,
+    SortPipe
   ],
   imports: [
     BrowserModule

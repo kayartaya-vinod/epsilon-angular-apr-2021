@@ -2,7 +2,7 @@
   <h3>Please select a name from the list</h3>
 </div>
 <div *ngIf="contact">
-  <h2>Contact details</h2>
+  <h2>Contact details of {{ contact | fullname }}</h2>
 
   <table class="table">
     <tbody>
