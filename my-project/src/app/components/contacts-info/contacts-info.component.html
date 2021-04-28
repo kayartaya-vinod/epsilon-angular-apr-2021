@@ -8,9 +8,9 @@
         class="list-group-item"
         *ngFor="let c of contacts"
         (click)="setSelectedContact(c)"
-        [ngClass]="{ 'active': c === selectedContact }"
+        [ngClass]="{ active: selectedContact && c.id === selectedContact.id }"
       >
-        {{ c.firstname }} {{ c.lastname }}
+        {{ c | fullname }}
       </li>
     </ul>
   </div>

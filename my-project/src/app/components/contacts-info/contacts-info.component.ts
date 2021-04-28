@@ -14,11 +14,15 @@ export class ContactsInfoComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.selectedContact = JSON.parse(localStorage.getItem('selectedContact'));
     this.contacts = contacts;
   }
 
   setSelectedContact(contact: any): void {
     this.selectedContact = contact;
+    // localStorage.setItem('selectedContact', JSON.stringify(this.selectedContact));
+    // localStorage['selectedContact'] = JSON.stringify(this.selectedContact);
+    localStorage.selectedContact = JSON.stringify(this.selectedContact);
   }
 
 }

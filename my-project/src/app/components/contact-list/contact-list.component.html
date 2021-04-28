@@ -53,16 +53,19 @@
   <thead>
     <tr>
       <th>Sl no.</th>
-      <th>Name</th>
-      <th *ngIf="showGenderColumn">Gender</th>
-      <th *ngIf="showEmailColumn">Email</th>
-      <th *ngIf="showPhoneColumn">Phone</th>
-      <th *ngIf="showCityColumn">City</th>
+      <th (click)="sortByField('firstname')">Name</th>
+      <th (click)="sortByField('gender')" *ngIf="showGenderColumn">Gender</th>
+      <th (click)="sortByField('email')" *ngIf="showEmailColumn">Email</th>
+      <th (click)="sortByField('phone')" *ngIf="showPhoneColumn">Phone</th>
+      <th (click)="sortByField('city')" *ngIf="showCityColumn">City</th>
     </tr>
   </thead>
   <tbody>
     <tr
-      *ngFor="let c of contacts | slice: 0:size; index as index"
+      *ngFor="
+        let c of contacts | sort: fieldNameToSort:sortInReverse | slice: 0:size;
+        index as index
+      "
       [ngClass]="setBgColorClass(c.gender)"
     >
       <td>{{ index + 1 }}</td>
