@@ -1,0 +1,76 @@
+<h2>Contact list</h2>
+
+<!-- ngClass="btn-outline-primary" -->
+<!-- [ngClass]="{ 'btn-primary': s === size, 'btn-outline-primary': s !== size }" -->
+<!-- [ngClass]="{ 'alert alert-secondary': c.gender === 'Female' }" -->
+
+<div>
+  <label>No of rows to display: </label>
+  <button
+    (click)="setSize(s)"
+    *ngFor="let s of sizes"
+    class="btn"
+    [ngClass]="s === size ? 'btn-primary' : 'btn-outline-primary'"
+  >
+    {{ s }}
+  </button>
+</div>
+
+<div>
+  <label>Show/hide columns: </label>
+
+  <button
+    class="btn"
+    (click)="showGenderColumn = !showGenderColumn"
+    [ngClass]="getButtonClass('gender')"
+  >
+    Gender
+  </button>
+  <button
+    class="btn"
+    (click)="showEmailColumn = !showEmailColumn"
+    [ngClass]="getButtonClass('email')"
+  >
+    Email
+  </button>
+  <button
+    class="btn"
+    (click)="showPhoneColumn = !showPhoneColumn"
+    [ngClass]="getButtonClass('phone')"
+  >
+    Phone
+  </button>
+  <button
+    class="btn"
+    (click)="showCityColumn = !showCityColumn"
+    [ngClass]="getButtonClass('city')"
+  >
+    City
+  </button>
+</div>
+
+<table class="table table-hover table-bordered">
+  <thead>
+    <tr>
+      <th>Sl no.</th>
+      <th>Name</th>
+      <th *ngIf="showGenderColumn">Gender</th>
+      <th *ngIf="showEmailColumn">Email</th>
+      <th *ngIf="showPhoneColumn">Phone</th>
+      <th *ngIf="showCityColumn">City</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr
+      *ngFor="let c of contacts | slice: 0:size; index as index"
+      [ngClass]="setBgColorClass(c.gender)"
+    >
+      <td>{{ index + 1 }}</td>
+      <td>{{ c.firstname }} {{ c.lastname }}</td>
+      <td *ngIf="showGenderColumn">{{ c.gender }}</td>
+      <td *ngIf="showEmailColumn">{{ c.email }}</td>
+      <td *ngIf="showPhoneColumn">{{ c.phone }}</td>
+      <td *ngIf="showCityColumn">{{ c.city }}</td>
+    </tr>
+  </tbody>
+</table>

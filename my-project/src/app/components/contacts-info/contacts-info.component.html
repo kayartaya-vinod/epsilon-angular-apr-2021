@@ -1,0 +1,21 @@
+<!-- {{ selectedContact | json }} -->
+<div class="row">
+  <div class="col-md-4">
+    <!-- list of all contact names should appear here -->
+    <ul class="list-group">
+      <li
+        style="cursor: pointer"
+        class="list-group-item"
+        *ngFor="let c of contacts"
+        (click)="setSelectedContact(c)"
+        [ngClass]="{ 'active': c === selectedContact }"
+      >
+        {{ c.firstname }} {{ c.lastname }}
+      </li>
+    </ul>
+  </div>
+  <div class="col-md-8">
+    <!-- selected contact details should appear here -->
+    <app-contact-card [contact]="selectedContact"></app-contact-card>
+  </div>
+</div>

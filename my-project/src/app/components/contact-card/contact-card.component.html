@@ -1,0 +1,39 @@
+<div *ngIf="!contact">
+  <h3>Please select a name from the list</h3>
+</div>
+<div *ngIf="contact">
+  <h2>Contact details</h2>
+
+  <table class="table">
+    <tbody>
+      <tr>
+        <td>Id</td>
+        <td>{{ contact.id }}</td>
+      </tr>
+      <tr>
+        <td>Firstname</td>
+        <td>{{ contact.firstname }}</td>
+      </tr>
+      <tr>
+        <td>Lastname</td>
+        <td>{{ contact.lastname }}</td>
+      </tr>
+      <tr>
+        <td>Gender</td>
+        <td>{{ contact.gender }}</td>
+      </tr>
+      <tr>
+        <td>Email address</td>
+        <td>{{ contact.email }}</td>
+      </tr>
+      <tr>
+        <td>Phone number</td>
+        <td>{{ contact.phone }}</td>
+      </tr>
+      <tr>
+        <td>City</td>
+        <td>{{ contact.city }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

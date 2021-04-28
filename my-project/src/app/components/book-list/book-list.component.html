@@ -1,0 +1,50 @@
+<h2>Using *ngFor directive</h2>
+
+<table class="table table-striped table-hover table-bordered">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Id</th>
+      <th>Title of the book</th>
+      <th>Author</th>
+      <th>Publisher</th>
+      <th>Price (INR)</th>
+      <th>Available?</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let b of books; index as slno">
+      <td>{{ slno + 1 }}</td>
+      <td>{{ b.id }}</td>
+      <td>{{ b.title | titlecase }}</td>
+      <td>{{ b.author | uppercase }}</td>
+      <td>{{ b.publisher }}</td>
+      <td>{{ b.price | currency: "INR" }}</td>
+      <td>{{ b.available ? "Yes" : "No" }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+<h2>Using *ngIf directive</h2>
+<h3>List of available books</h3>
+<table class="table table-striped table-hover table-bordered">
+  <thead>
+    <tr>
+      <th>Title of the book</th>
+      <th>Author</th>
+      <th>Publisher</th>
+      <th>Price (INR)</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let b of books" [hidden]="!b.available">
+      <td>{{ b.title }}</td>
+      <td>{{ b.author }}</td>
+      <td>{{ b.publisher }}</td>
+      <td>{{ b.price }}</td>
+    </tr>
+  </tbody>
+</table>

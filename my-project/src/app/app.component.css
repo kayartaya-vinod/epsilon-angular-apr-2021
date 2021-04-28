@@ -1,0 +1,4 @@
+/* the styles defined here do not affect any other components */
+div.container {
+  min-height: 600px;
+}

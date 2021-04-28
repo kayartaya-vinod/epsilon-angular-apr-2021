@@ -1,0 +1,78 @@
+<h2>NgSwitch/NgSwitchCase/NgSwitchDefault demo</h2>
+
+<button
+  *ngFor="let lt of linkTexts; index as i"
+  class="btn btn-link"
+  (click)="setUserChoice(i)"
+>
+  {{ lt }}
+</button>
+
+<div [ngSwitch]="userChoice">
+  <div *ngSwitchCase="0">
+    <h3>Tiger</h3>
+    <p>
+      The tiger (Panthera tigris) is the largest cat species, most recognizable
+      for its pattern of dark vertical stripes on reddish-orange fur with a
+      lighter underside. The species is classified in the genus Panthera with
+      the lion, jaguar, leopard, and snow leopard. It is an apex predator,
+      primarily preying on ungulates such as deer and bovids. It is territorial
+      and generally a solitary but social predator, often requiring large
+      contiguous areas of habitat that support its prey requirements. This,
+      coupled with the fact that it is indigenous to some of the more densely
+      populated places on Earth, has caused significant conflicts with humans.
+    </p>
+  </div>
+
+  <div *ngSwitchCase="1">
+    <h3>Lion</h3>
+    <p>
+      The lion (Panthera leo) is a species in the family Felidae; it is a
+      muscular, deep-chested cat with a short, rounded head, a reduced neck and
+      round ears, and a hairy tuft at the end of its tail. The lion is sexually
+      dimorphic; males are larger than females with a typical weight range of
+      150 to 250 kg (330 to 550 lb) for males and 120 to 182 kg (265 to 400 lb)
+      for females. Male lions have a prominent mane, which is the most
+      recognisable feature of the species. A lion pride consists of a few adult
+      males, related females and cubs. Groups of female lions typically hunt
+      together, preying mostly on large ungulates. The species is an apex and
+      keystone predator, although they scavenge when opportunities occur. Some
+      lions have been known to hunt humans, although the species typically does
+      not.
+    </p>
+  </div>
+
+  <div *ngSwitchCase="2">
+    <h3>Cheetah</h3>
+    <p>
+      The cheetah (/ˈtʃiːtə/; Acinonyx jubatus) is a large cat of the subfamily
+      Felinae that occurs in Southern, North and East Africa, and a few
+      localities in Iran. The species is IUCN Red Listed as vulnerable, as it
+      suffered a substantial decline in its historic range in the 20th century
+      due to habitat loss, poaching, illegal pet trade, and conflict with
+      humans. By 2016, the global cheetah population has been estimated at
+      approximately 7,100 individuals in the wild. Several African countries
+      have taken steps to improve cheetah conservation measures.[1]
+    </p>
+  </div>
+
+  <div *ngSwitchCase="3">
+    <h3>Eagle</h3>
+    <p>
+      Eagle is the common name for many large birds of prey of the family
+      Accipitridae. Eagles belong to several groups of genera, not all of which
+      are closely related. Most of the 60 species of eagle are from Eurasia and
+      Africa.[1] Outside this area, just 14 species can be found—2 in North
+      America, 9 in Central and South America, and 3 in Australia.
+    </p>
+  </div>
+
+  <div *ngSwitchCase="4">
+    <h3>Python</h3>
+    <p>Information about Python</p>
+  </div>
+
+  <div *ngSwitchDefault>
+    <h3>No information available for the selected animal/bird</h3>
+  </div>
+</div>

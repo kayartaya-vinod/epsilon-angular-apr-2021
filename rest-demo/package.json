@@ -1,0 +1,30 @@
+{
+  "name": "rest-demo",
+  "version": "1.0.0",
+  "description": "Simple RESTful Web Service for Angular App",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kayartaya-vinod/rest-demo.git"
+  },
+  "keywords": [
+    "vinod",
+    "rest",
+    "epsilon",
+    "rest",
+    "demo"
+  ],
+  "author": "Vinod Kumar Kayartaya <vinod@vinod.co>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kayartaya-vinod/rest-demo/issues"
+  },
+  "homepage": "https://github.com/kayartaya-vinod/rest-demo#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1"
+  }
+}

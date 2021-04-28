@@ -1,0 +1,17 @@
+URI         www.example.com/api/products
+
+Http request methods:
+GET         : get one or some or all products
+POST        : create a new product in the resource (new product sent via payload)
+PUT         : replace an existing product with the one sent via payload
+DELETE      : remove the resource correspondig to the ID
+PATCH       : update of some properties of a specific resource
+
+Content negotiation - Using HTTP request headers:
+Accept      : client can negotiate for a specific representation (format, XML/json/CSV/...) of the resource
+Content-Type: client can send a specifi representation (using POST/PUT/PATCH)
+
+
+www.example.com/api/products
+www.example.com/api/products/12
+www.example.com/api/products/12/picture
