@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -12,6 +14,12 @@ import { ContactsInfoComponent } from './components/contacts-info/contacts-info.
 import { ContactCardComponent } from './components/contact-card/contact-card.component';
 import { FullnamePipe } from './pipes/fullname.pipe';
 import { SortPipe } from './pipes/sort.pipe';
+import { FilterPipe } from './pipes/filter.pipe';
+import { FilterableContactListComponent } from './components/filterable-contact-list/filterable-contact-list.component';
+import { MovieListComponent } from './components/movie-list/movie-list.component';
+import { MovieDetailsComponent } from './components/movie-details/movie-details.component';
+import { MovieService } from './services/movie.service';
+// import { ContactService } from './services/contact.service';
 
 @NgModule({
   declarations: [
@@ -25,12 +33,21 @@ import { SortPipe } from './pipes/sort.pipe';
     ContactsInfoComponent,
     ContactCardComponent,
     FullnamePipe,
-    SortPipe
+    SortPipe,
+    FilterPipe,
+    FilterableContactListComponent,
+    MovieListComponent,
+    MovieDetailsComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    HttpClientModule // import { HttpClientModule } from '@angular/common/http';
   ],
-  providers: [],
+  providers: [
+    // ContactService, 
+    MovieService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

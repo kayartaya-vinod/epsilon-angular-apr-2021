@@ -1,0 +1,19 @@
+<h2>Search movie information</h2>
+
+<div>
+  <form (submit)="fetchMovieList()">
+    <label for="searchText">Enter movie title that you are looking for</label>
+    <!-- input:text#searchText[name=searchText].form-control -->
+    <input
+      type="text"
+      name="searchText"
+      id="searchText"
+      class="form-control"
+      [(ngModel)]="searchText"
+    />
+  </form>
+</div>
+
+<p>Total movies = {{ totalMovies }}</p>
+
+{{ movies | json }}

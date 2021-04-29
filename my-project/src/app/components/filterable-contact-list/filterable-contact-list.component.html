@@ -1,0 +1,46 @@
+<div [innerHtml]="title"></div>
+<!-- <img [src]="vinodPic" alt="" /> -->
+<!-- <input [value]="filterText" ... > -->
+<!-- the above code is an example of one way data binding from model to UI -->
+
+<!-- [(ngModel)]="modelDataVariable"  is the way to data binding -->
+<!-- [ngModel] -> one way data binding from model to UI -->
+<!-- (ngModel) -> event binding of onchange event to update modelDataVariable -->
+<div>
+  <label for="filterBy">Filter data by entering some text here:</label>
+  <input
+    type="text"
+    name="filterBy"
+    id="filterBy"
+    class="form-control"
+    autofocus
+    placeholder="enter the firstname you are looking for..."
+    [(ngModel)]="filterText"
+  />
+</div>
+
+<!-- table.table.table-bordered.table-hover>(thead>tr>th*5)+(tbody>tr>td*5) -->
+<table class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <th>Firstname</th>
+      <th>Lastname</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>City</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let c of data | filter: filterText:'firstname'">
+      <td [innerText]="c.firstname"></td>
+      <td>{{ c.lastname }}</td>
+      <td>{{ c.email }}</td>
+      <td>{{ c.phone }}</td>
+      <td>{{ c.city }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<button class="btn btn-primary" [disabled]="noMoreData" (click)="loadMore()">
+  Load more
+</button>
