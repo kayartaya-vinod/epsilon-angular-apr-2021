@@ -4,7 +4,7 @@ Accept: application/json
 
 ###
 
-GET /api/products/1
+GET /api/products/608b808c57cbc9d8f5928e46
 Host: localhost:50000
 Accept: application/json
 
@@ -18,6 +18,18 @@ Content-Type: application/json
 {
     "name": "Cabbage",
     "price": 19.46
+}
+
+###
+
+POST /api/products
+Host: localhost:50000
+Accept: application/json
+Content-Type: application/json
+
+{
+    "name": "Apple",
+    "price": 129
 }
 
 ###

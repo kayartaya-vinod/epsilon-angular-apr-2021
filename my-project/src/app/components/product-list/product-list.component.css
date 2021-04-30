@@ -1,0 +1,6 @@
+tr > td > span {
+  display: none;
+}
+tr > td:hover > span {
+  display: inline;
+}

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ProductService } from 'src/app/services/product.service';
 
 // const swal = window['swal'];
@@ -12,7 +13,8 @@ export class NewProductComponent implements OnInit {
 
   product: any = {};
 
-  constructor(private service: ProductService) { }
+  constructor(private service: ProductService,
+    private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -20,9 +22,9 @@ export class NewProductComponent implements OnInit {
   save(): void {
     this.service.addNewProduct(this.product)
       .subscribe(newProd => {
-        // swal('Product data saved', `ID genderated is ${newProd.id}`, 'success');
-        window.alert(`New product saved with id ${newProd.id}`);
-        this.product = {};
+        // swal('Product data saved', `ID genderated is ${newProd._id}`, 'success');
+        window.alert(`New product saved with id ${newProd._id}`);
+        this.router.navigate(['/product-details', newProd._id]);
       });
   }
 

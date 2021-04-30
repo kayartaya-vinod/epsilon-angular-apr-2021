@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -22,7 +23,11 @@ import { MovieService } from './services/movie.service';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { NewProductComponent } from './components/new-product/new-product.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { routes } from './routes';
+import { HomeComponent } from './components/home/home.component';
 // import { ContactService } from './services/contact.service';
+
 
 @NgModule({
   declarations: [
@@ -43,12 +48,15 @@ import { NewProductComponent } from './components/new-product/new-product.compon
     MovieDetailsComponent,
     ProductListComponent,
     ProductDetailsComponent,
-    NewProductComponent
+    NewProductComponent,
+    PageNotFoundComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule // import { HttpClientModule } from '@angular/common/http';
+    HttpClientModule, // import { HttpClientModule } from '@angular/common/http';
+    RouterModule.forRoot(routes, { useHash: false })
   ],
   providers: [
     // ContactService, 
