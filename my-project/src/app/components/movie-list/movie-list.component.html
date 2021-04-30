@@ -1,19 +1,53 @@
 <h2>Search movie information</h2>
 
-<div>
-  <form (submit)="fetchMovieList()">
-    <label for="searchText">Enter movie title that you are looking for</label>
-    <!-- input:text#searchText[name=searchText].form-control -->
-    <input
-      type="text"
-      name="searchText"
-      id="searchText"
-      class="form-control"
-      [(ngModel)]="searchText"
-    />
-  </form>
+<div class="row">
+  <div class="col">
+    <div>
+      <form (submit)="fetchMovieList()">
+        <label for="searchText"
+          >Enter movie title that you are looking for</label
+        >
+        <!-- input:text#searchText[name=searchText].form-control -->
+        <input
+          type="text"
+          name="searchText"
+          id="searchText"
+          class="form-control"
+          [(ngModel)]="searchText"
+        />
+      </form>
+    </div>
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let m of movies">
+        <div class="row">
+          <div class="col-4">
+            <img [src]="m.Poster" [alt]="m.Title" class="img-thumbnail" />
+          </div>
+          <div class="col-8">
+            <h3>{{ m.Title }}</h3>
+            <p>{{ m.Type }}</p>
+            <p>Year: {{ m.Year }}</p>
+            <p>
+              <a href="https://imdb.com/title/{{ m.imdbID }}" target="_blank"
+                >View in IMDB</a
+              >
+            </p>
+          </div>
+        </div>
+      </li>
+    </ul>
+
+    <button
+      *ngIf="movies && movies.length"
+      class="btn btn-primary btn-block"
+      (click)="loadMore()"
+      [disabled]="loading"
+    >
+      <span *ngIf="loading">Loading... please wait</span>
+      <span *ngIf="!loading">Load more</span>
+    </button>
+  </div>
+  <div class="col">
+    <app-movie-details></app-movie-details>
+  </div>
 </div>
-
-<p>Total movies = {{ totalMovies }}</p>
-
-{{ movies | json }}

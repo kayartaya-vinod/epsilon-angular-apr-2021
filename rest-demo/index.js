@@ -17,7 +17,7 @@ server.use(bp.json());
 //          1025-65535 can be used by other s/w
 
 const fn = (req, resp) => {
-  console.log(`Got a zuest from ${req.ip} (${req.hostname})`);
+  console.log(`Got a request from ${req.ip} (${req.hostname})`);
   resp.write("<h1>Hello, world!</h1>");
   resp.write("<hr>");
   resp.write("<p>Developed by Vinod; Powered by ExpressJS</p>");
@@ -25,6 +25,16 @@ const fn = (req, resp) => {
 };
 
 server.get("/", fn);
+
+// middleware is a function that is registered with express, and is executed
+// for every request; middleware should be defined before defining routes
+server.use((req, resp, next) => {
+  // add CORS headers
+  resp.set("Access-Control-Allow-Origin", "*");
+  resp.set("Access-Control-Allow-Headers", "*");
+  resp.set("Access-Control-Allow-Methods", "*");
+  next(); // pass the control to the next handler
+});
 
 // we are mapping a handler function to a url path
 server.get("/api/products", getAllProductsHandler);

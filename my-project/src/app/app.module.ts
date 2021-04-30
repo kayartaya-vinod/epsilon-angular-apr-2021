@@ -19,6 +19,9 @@ import { FilterableContactListComponent } from './components/filterable-contact-
 import { MovieListComponent } from './components/movie-list/movie-list.component';
 import { MovieDetailsComponent } from './components/movie-details/movie-details.component';
 import { MovieService } from './services/movie.service';
+import { ProductListComponent } from './components/product-list/product-list.component';
+import { ProductDetailsComponent } from './components/product-details/product-details.component';
+import { NewProductComponent } from './components/new-product/new-product.component';
 // import { ContactService } from './services/contact.service';
 
 @NgModule({
@@ -37,7 +40,10 @@ import { MovieService } from './services/movie.service';
     FilterPipe,
     FilterableContactListComponent,
     MovieListComponent,
-    MovieDetailsComponent
+    MovieDetailsComponent,
+    ProductListComponent,
+    ProductDetailsComponent,
+    NewProductComponent
   ],
   imports: [
     BrowserModule,
