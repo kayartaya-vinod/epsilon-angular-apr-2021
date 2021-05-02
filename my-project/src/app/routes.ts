@@ -1,4 +1,5 @@
 import { Routes } from "@angular/router";
+import { EditProductComponent } from "./components/edit-product/edit-product.component";
 import { HomeComponent } from "./components/home/home.component";
 import { NewProductComponent } from "./components/new-product/new-product.component";
 import { PageNotFoundComponent } from "./components/page-not-found/page-not-found.component";
@@ -26,6 +27,10 @@ export const routes: Routes = [
     {
         path: 'product-list',
         component: ProductListComponent
+    },
+    {
+        path: 'edit-product/:id',
+        component: EditProductComponent
     },
     {
         // this must be the last Route in this array

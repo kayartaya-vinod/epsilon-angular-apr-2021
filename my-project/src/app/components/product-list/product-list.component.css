@@ -1,6 +1,10 @@
-tr > td > span {
+tr > td .edit-delete-buttons {
   display: none;
 }
-tr > td:hover > span {
+tr > td:hover .edit-delete-buttons {
   display: inline;
+}
+
+i.fa {
+  cursor: pointer;
 }

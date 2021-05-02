@@ -3,6 +3,8 @@ const {
   getAllProductsHandler,
   getOneProduct,
   addNewProduct,
+  updateProduct,
+  deleteProduct,
 } = require("./products-handlers");
 const bp = require("body-parser");
 
@@ -40,6 +42,8 @@ server.use((req, resp, next) => {
 server.get("/api/products", getAllProductsHandler);
 server.get("/api/products/:productId", getOneProduct);
 server.post("/api/products", addNewProduct);
+server.put("/api/products/:productId", updateProduct);
+server.delete("/api/products/:productId", deleteProduct);
 
 // talk to the OS to reserve port 50000 for our server
 const port = 50000;

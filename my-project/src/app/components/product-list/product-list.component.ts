@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ProductService } from 'src/app/services/product.service';
 
 @Component({
@@ -10,7 +11,8 @@ export class ProductListComponent implements OnInit {
 
   products: Array<any> = [];
 
-  constructor(private service: ProductService) { }
+  constructor(private service: ProductService,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.service.getAllProducts()
@@ -20,4 +22,10 @@ export class ProductListComponent implements OnInit {
         () => console.log('Nothing else to get!'));
   }
 
+  confirmAndDelete(id: string): void {
+    if (window.confirm('Are you sure to delete this?')) {
+      this.service.deleteProduct(id)
+        .subscribe(() => this.ngOnInit());
+    }
+  }
 }

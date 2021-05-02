@@ -3,11 +3,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from 'src/app/services/product.service';
 
 @Component({
-  selector: 'app-product-details',
-  templateUrl: './product-details.component.html',
-  styleUrls: ['./product-details.component.css']
+  selector: 'app-edit-product',
+  templateUrl: './edit-product.component.html',
+  styleUrls: ['./edit-product.component.css']
 })
-export class ProductDetailsComponent implements OnInit {
+export class EditProductComponent implements OnInit {
 
   product: any = {};
 
@@ -16,7 +16,6 @@ export class ProductDetailsComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit(): void {
-
     this.activatedRoute.params.subscribe(routeParams => {
       this.service.getOneProduct(routeParams['id'])
         .subscribe(
@@ -27,11 +26,14 @@ export class ProductDetailsComponent implements OnInit {
     });
   }
 
-  confirmAndDelete(): void {
-    if (window.confirm('Are you sure to delete this?')) {
-      this.service.deleteProduct(this.product._id)
-        .subscribe(() => this.router.navigate(['/product-list']));
-    }
+  save(): void {
+    this.service.updateProduct(this.product)
+      .subscribe(
+        resp => {
+          console.log('resp is', resp);
+          this.router.navigate(['/product-details', resp._id]);
+        },
+        console.error);
   }
 
 }

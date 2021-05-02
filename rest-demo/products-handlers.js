@@ -34,3 +34,32 @@ module.exports.addNewProduct = (req, resp) => {
     }
   });
 };
+
+module.exports.updateProduct = (req, resp) => {
+  const id = req.params.productId;
+  const pr = req.body;
+
+  console.log("id", id);
+  console.log("pr", pr);
+
+  dao.updateProduct(id, pr, (err, result) => {
+    if (err) {
+      resp.status(500);
+      resp.json(err);
+    } else {
+      resp.json(result);
+    }
+  });
+};
+
+module.exports.deleteProduct = (request, response) => {
+  let id = request.params.productId;
+  dao.deleteProduct(id, (err, data) => {
+    if (err) {
+      response.status(500);
+      response.json(err);
+    } else {
+      response.json(data);
+    }
+  });
+};

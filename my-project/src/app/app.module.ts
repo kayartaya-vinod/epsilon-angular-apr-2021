@@ -26,6 +26,7 @@ import { NewProductComponent } from './components/new-product/new-product.compon
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { routes } from './routes';
 import { HomeComponent } from './components/home/home.component';
+import { EditProductComponent } from './components/edit-product/edit-product.component';
 // import { ContactService } from './services/contact.service';
 
 
@@ -50,7 +51,8 @@ import { HomeComponent } from './components/home/home.component';
     ProductDetailsComponent,
     NewProductComponent,
     PageNotFoundComponent,
-    HomeComponent
+    HomeComponent,
+    EditProductComponent
   ],
   imports: [
     BrowserModule,

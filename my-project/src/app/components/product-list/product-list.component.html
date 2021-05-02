@@ -13,17 +13,24 @@
       <tbody>
         <tr *ngFor="let p of products">
           <td>
-            <button
-              [routerLink]="['/product-details', p._id]"
-              class="btn btn-link"
-            >
-              {{ p.name }}
-            </button>
-            <span>
-              <i class="fa fa-pencil"></i>
-              &nbsp;
-              <i class="fa fa-trash"></i>
-            </span>
+            <div class="row">
+              <div class="col-10">
+                <button
+                  [routerLink]="['/product-details', p._id]"
+                  class="btn btn-link"
+                >
+                  {{ p.name }}
+                </button>
+              </div>
+              <div class="col-2 edit-delete-buttons">
+                <i
+                  class="fa fa-pencil"
+                  [routerLink]="['/edit-product', p._id]"
+                ></i>
+                &nbsp;
+                <i class="fa fa-trash" (click)="confirmAndDelete(p._id)"></i>
+              </div>
+            </div>
           </td>
           <td>{{ p.unit_price | currency: "INR" }}</td>
         </tr>
