@@ -11,6 +11,7 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class NewProductComponent implements OnInit {
 
+  title: string = 'Enter new product details';
   product: any = {};
 
   constructor(private service: ProductService,

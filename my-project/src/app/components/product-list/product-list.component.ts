@@ -11,10 +11,13 @@ export class ProductListComponent implements OnInit {
 
   products: Array<any> = [];
 
-  constructor(private service: ProductService,
-    private router: Router) { }
+  constructor(private service: ProductService) { }
 
   ngOnInit(): void {
+    this.refresh();
+  }
+
+  refresh() {
     this.service.getAllProducts()
       .subscribe(
         data => this.products = data,
@@ -25,7 +28,10 @@ export class ProductListComponent implements OnInit {
   confirmAndDelete(id: string): void {
     if (window.confirm('Are you sure to delete this?')) {
       this.service.deleteProduct(id)
-        .subscribe(() => this.ngOnInit());
+        .subscribe(() => {
+          const index = this.products.findIndex(p => p._id == id);
+          this.products.splice(index, 1);
+        });
     }
   }
 }

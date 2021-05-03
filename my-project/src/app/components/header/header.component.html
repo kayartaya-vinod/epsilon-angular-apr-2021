@@ -1,13 +1,19 @@
 <!-- .alert.alert-primary>.container>h1{Angular demo application} -->
 <div class="alert alert-primary">
   <div class="container">
-    <h1>Angular demo application</h1>
+    <h1>{{ "header.title" | translate }}</h1>
   </div>
 </div>
 
 <div class="container">
-  <button routerLink="/" class="btn btn-link">Home</button>
-  <button routerLink="/product-list" class="btn btn-link">Product list</button>
-  <button routerLink="/new-product" class="btn btn-link">New product</button>
+  <button routerLink="/" class="btn btn-link">
+    {{ "header.menu.home" | translate }}
+  </button>
+  <button routerLink="/product-list" class="btn btn-link">
+    {{ "header.menu.product-list" | translate }}
+  </button>
+  <button routerLink="/new-product" class="btn btn-link">
+    {{ "header.menu.new-product" | translate }}
+  </button>
   <hr />
 </div>

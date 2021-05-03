@@ -1,0 +1,18 @@
+{
+  "header": {
+    "title": "Application de démonstration angulaire",
+    "menu": {
+      "home": "Domicile",
+      "product-list": "Liste de produits",
+      "new-product": "Nouveau produit"
+    }
+  },
+  "home": {
+    "menu": {
+      "counter": "Application de compteur",
+      "books": "Liste de livres",
+      "movies": "Liste des films",
+      "contacts": "Liste de contacts"
+    }
+  }
+}

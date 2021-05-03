@@ -1,1 +1,83 @@
-<p>home works!</p>
+<!-- .row>.col-3+.col-9>router-outlet -->
+<div class="row">
+  <div class="col-3">
+    <!-- ul.list-group>li.list-group-item*6 -->
+    <ul class="list-group">
+      <li
+        class="list-group-item"
+        [ngClass]="{ 'app-active': active === 'counter' }"
+      >
+        <button
+          (click)="setActive('counter')"
+          routerLink="./counter"
+          class="btn btn-link"
+        >
+          Counter app
+        </button>
+      </li>
+      <li
+        class="list-group-item"
+        [ngClass]="{ 'app-active': active === 'books' }"
+      >
+        <button
+          (click)="setActive('books')"
+          routerLink="./books"
+          class="btn btn-link"
+        >
+          Book list
+        </button>
+      </li>
+      <li
+        class="list-group-item"
+        [ngClass]="{ 'app-active': active === 'filterable-contacts' }"
+      >
+        <button
+          (click)="setActive('filterable-contacts')"
+          routerLink="./filterable-contacts"
+          class="btn btn-link"
+        >
+          Filterable contacts
+        </button>
+      </li>
+      <li
+        class="list-group-item"
+        [ngClass]="{ 'app-active': active === 'ng-switch-demo' }"
+      >
+        <button
+          (click)="setActive('ng-switch-demo')"
+          routerLink="./ng-switch-demo"
+          class="btn btn-link"
+        >
+          NgSwitch Demo
+        </button>
+      </li>
+      <li
+        class="list-group-item"
+        [ngClass]="{ 'app-active': active === 'movies' }"
+      >
+        <button
+          (click)="setActive('movies')"
+          routerLink="./movies"
+          class="btn btn-link"
+        >
+          Movie list
+        </button>
+      </li>
+      <li
+        class="list-group-item"
+        [ngClass]="{ 'app-active': active === 'contacts' }"
+      >
+        <button
+          (click)="setActive('contacts')"
+          routerLink="./contacts"
+          class="btn btn-link"
+        >
+          Contacts
+        </button>
+      </li>
+    </ul>
+  </div>
+  <div class="col-9">
+    <router-outlet></router-outlet>
+  </div>
+</div>

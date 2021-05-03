@@ -1,8 +1,9 @@
 <div class="row">
   <div class="col-2"></div>
   <div class="col">
-    <h2>Add a new product details</h2>
-    <form>
+    <h2>{{ title ? title : "Add a new product details" }}</h2>
+    <!-- f1 is a reference to the form object created and maintained by angular -->
+    <form #f1="ngForm">
       <div class="form-group row">
         <label for="name" class="col-sm-3 col-form-label"
           >Name of the product</label
@@ -14,7 +15,18 @@
             id="name"
             name="pr_name"
             [(ngModel)]="product.name"
+            required
+            minlength="5"
+            #pname="ngModel"
           />
+          <!-- pname is a reference to an object corresponding to the above textfield  -->
+
+          <div class="text-danger" *ngIf="pname.dirty && pname.invalid">
+            <div *ngIf="pname.errors.required">Product name is required</div>
+            <div *ngIf="pname.errors.minlength">
+              At least 5 letters required for product name
+            </div>
+          </div>
         </div>
       </div>
 
@@ -25,6 +37,7 @@
             type="text"
             class="form-control"
             id="description"
+            required
             name="description"
             [(ngModel)]="product.description"
           />
@@ -54,6 +67,8 @@
             class="form-control"
             id="price"
             name="pr_price"
+            min="0"
+            required
             [(ngModel)]="product.unit_price"
           />
         </div>
@@ -69,6 +84,8 @@
             class="form-control"
             id="discount"
             name="discount"
+            min="0"
+            max="100"
             [(ngModel)]="product.discount"
           />
         </div>
@@ -82,6 +99,7 @@
             class="form-control"
             id="brand"
             name="brand"
+            required
             [(ngModel)]="product.brand"
           />
         </div>
@@ -95,6 +113,7 @@
             class="form-control"
             id="category"
             name="category"
+            required
             [(ngModel)]="product.category"
           />
         </div>
@@ -113,7 +132,14 @@
         </div>
       </div>
 
-      <button class="btn btn-primary" (click)="save()">Save details</button>
+      <button
+        class="btn"
+        [disabled]="f1.invalid"
+        [ngClass]="{ 'btn-primary': f1.valid, 'btn-danger': f1.invalid }"
+        (click)="save()"
+      >
+        Save details
+      </button>
     </form>
   </div>
   <div class="col-2"></div>

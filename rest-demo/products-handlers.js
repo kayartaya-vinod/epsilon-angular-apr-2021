@@ -39,9 +39,6 @@ module.exports.updateProduct = (req, resp) => {
   const id = req.params.productId;
   const pr = req.body;
 
-  console.log("id", id);
-  console.log("pr", pr);
-
   dao.updateProduct(id, pr, (err, result) => {
     if (err) {
       resp.status(500);

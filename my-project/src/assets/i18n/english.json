@@ -1,0 +1,18 @@
+{
+  "header": {
+    "title": "Angular demo application",
+    "menu": {
+      "home": "Home",
+      "product-list": "Product list",
+      "new-product": "New product"
+    }
+  },
+  "home": {
+    "menu": {
+      "counter": "Counter app",
+      "books": "Book list",
+      "movies": "Movie list",
+      "contacts": "Contact list"
+    }
+  }
+}

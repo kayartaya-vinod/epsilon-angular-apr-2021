@@ -4,11 +4,11 @@ import { ProductService } from 'src/app/services/product.service';
 
 @Component({
   selector: 'app-edit-product',
-  templateUrl: './edit-product.component.html',
-  styleUrls: ['./edit-product.component.css']
+  templateUrl: '../new-product/new-product.component.html',
 })
 export class EditProductComponent implements OnInit {
 
+  title: string = 'Edit product details';
   product: any = {};
 
   constructor(private service: ProductService,

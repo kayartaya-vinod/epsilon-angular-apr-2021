@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
-import { RouterModule, Routes } from '@angular/router';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -29,6 +31,15 @@ import { HomeComponent } from './components/home/home.component';
 import { EditProductComponent } from './components/edit-product/edit-product.component';
 // import { ContactService } from './services/contact.service';
 
+
+
+const trCfg = {
+  loader: {
+    provide: TranslateLoader,
+    deps: [HttpClient],
+    useFactory: (http: HttpClient) => new TranslateHttpLoader(http)
+  }
+};
 
 @NgModule({
   declarations: [
@@ -58,7 +69,8 @@ import { EditProductComponent } from './components/edit-product/edit-product.com
     BrowserModule,
     FormsModule,
     HttpClientModule, // import { HttpClientModule } from '@angular/common/http';
-    RouterModule.forRoot(routes, { useHash: false })
+    RouterModule.forRoot(routes, { useHash: false }),
+    TranslateModule.forRoot(trCfg)
   ],
   providers: [
     // ContactService, 
