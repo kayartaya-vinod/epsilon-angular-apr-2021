@@ -15,5 +15,19 @@
   <button routerLink="/new-product" class="btn btn-link">
     {{ "header.menu.new-product" | translate }}
   </button>
+
+  <div class="pull-right">
+    <label for="langSelector">Select language: </label>
+    <select
+      name="lang"
+      [(ngModel)]="lang"
+      id="langSelector"
+      class="form-select"
+      (change)="changeLanguage()"
+    >
+      <option value="english">US English</option>
+      <option value="french">French</option>
+    </select>
+  </div>
   <hr />
 </div>
