@@ -77,6 +77,11 @@ export const routes: Routes = [
         component: EditProductComponent
     },
     {
+        path: 'customers',
+        // component: CustomerComponent
+        loadChildren: './customer-module/customer-module.module#CustomerModuleModule'
+    },
+    {
         // this must be the last Route in this array
         path: '**',
         component: PageNotFoundComponent

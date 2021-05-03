@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -29,6 +29,8 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { routes } from './routes';
 import { HomeComponent } from './components/home/home.component';
 import { EditProductComponent } from './components/edit-product/edit-product.component';
+import { CustomerModuleModule } from './customer-module/customer-module.module';
+import { AuthTokenInterceptorService } from './services/auth-token-interceptor.service';
 // import { ContactService } from './services/contact.service';
 
 
@@ -70,11 +72,17 @@ const trCfg = {
     FormsModule,
     HttpClientModule, // import { HttpClientModule } from '@angular/common/http';
     RouterModule.forRoot(routes, { useHash: false }),
-    TranslateModule.forRoot(trCfg)
+    TranslateModule.forRoot(trCfg),
+    // CustomerModuleModule, // all corresponding code becomes part of AppModule
   ],
   providers: [
     // ContactService, 
-    MovieService
+    MovieService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthTokenInterceptorService,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })
