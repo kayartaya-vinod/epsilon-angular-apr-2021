@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "epsilon-angular-demo": {
+      "hosting": {
+        "my-project": [
+          "epsilon-angular-demo"
+        ]
+      }
+    }
+  }
+}
